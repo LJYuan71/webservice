@@ -16,8 +16,8 @@
         <druid.version>1.0.29</druid.version>
     </properties>
     <build>
-        <!-- 执行编译后的文件夹和war包名称,如果不设置会默认使用artifactId的值 -->
-        <finalName>SpringMVC-Maven</finalName>
+        <!-- 执行编译后的文件夹和war包名称,如果不设置会默认使用artifactId的值
+        <finalName>webservice-server</finalName> -->
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
