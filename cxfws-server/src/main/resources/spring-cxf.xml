@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-lazy-init="true"> 
+	<!-- 引入CXF Bean定义如下,早期的版本中使用 --> 
+	<import resource="classpath:META-INF/cxf/cxf.xml" /> 
+		<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+		
+	<!--发布webservice --> 
+	<!-- WebService的实现Bean定义 --> 
+	<!--web.xml配置了webservice的访问路径/services/*，那么/services/LjyCxfWebService?wsdl就是该webservice的访问路径 -->
+	<jaxws:endpoint id="cxfWebService" implementor="tk.ljyuan71.cxfwebservice.impl.CxfWebServiceImpl" address="/cxfWebService">
+		<!-- 拦截器配置 -->
+		<jaxws:inInterceptors>  
+            <bean name="logInInter" class="org.apache.cxf.interceptor.LoggingInInterceptor" />  
+        </jaxws:inInterceptors>  
+        <jaxws:outInterceptors>  
+            <bean name="logOutInter" class="org.apache.cxf.interceptor.LoggingOutInterceptor" />  
+        </jaxws:outInterceptors>  
+	</jaxws:endpoint>
+</beans>

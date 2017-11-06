@@ -7,6 +7,7 @@
   <!-- 工程配置 -->
   <modules>
     <module>webservice-server</module>
+    <module>cxfws-server</module>
     <module>webservice-client</module>
   </modules>
    

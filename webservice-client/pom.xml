@@ -8,4 +8,40 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>webservice-client</artifactId>
   <packaging>war</packaging>
+  <!-- webservice start jdk1.7支持的最高版本3.1.13 -->
+  <dependencies>
+	<dependency>
+	    <groupId>org.apache.cxf</groupId>
+	    <artifactId>cxf-rt-frontend-jaxws</artifactId>
+	    <version>3.1.13</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.cxf</groupId>
+	    <artifactId>cxf-rt-transports-http-jetty</artifactId>
+	    <version>3.1.13</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.cxf</groupId>
+	    <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+	    <version>3.1.13</version>
+	</dependency>
+	<!-- cxf3.1.13只支持stax2-api到3.1.4 -->
+	<dependency>
+	    <groupId>org.codehaus.woodstox</groupId>
+	    <artifactId>stax2-api</artifactId>
+	    <version>3.1.4</version>
+	</dependency>
+	<dependency>
+		<groupId>org.codehaus.woodstox</groupId>
+		<artifactId>woodstox-core-asl</artifactId>
+		<version>4.4.1</version>
+		<exclusions>
+			<exclusion>
+				<artifactId>stax-api</artifactId>
+				<groupId>javax.xml.stream</groupId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<!-- webservice end -->
+  </dependencies>
 </project>
